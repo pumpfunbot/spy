@@ -90,6 +90,21 @@
         </div> 
     </div> 
 
+    <!-- Donation Section -->
+    <section class="donation-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2>Support Us</h2>
+                    <p>If you find this tool useful, consider supporting its development by donating.</p>
+                    <p>Donate to: 9xWD4wuT5FVJ55PmLE7fyTLY3yAFWWvDGN6j9hAjttG7</p>
+                    <p>Your Wallet Address: <span id="walletAddress">9xWD4wuT5FVJ55PmLE7fyTLY3yAFWWvDGN6j9hAjttG7</span></p>
+                    <button id="copyAddressBtn" class="btn btn-primary">Copy Address</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Include any necessary scripts, such as the script provided in your question -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
     <script type="module" src="leaderboard.js"></script>
@@ -125,6 +140,15 @@
             a.href = URL.createObjectURL(blob);
             a.textContent = 'Download';
             a.click();
+        });
+
+        document.getElementById('copyAddressBtn').addEventListener('click', function() {
+            var walletAddress = document.getElementById('walletAddress').innerText;
+            navigator.clipboard.writeText(walletAddress).then(function() {
+                alert('Wallet address copied to clipboard!');
+            }, function(err) {
+                console.error('Could not copy wallet address: ', err);
+            });
         });
     </script>
 </body>
